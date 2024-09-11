@@ -1,0 +1,34 @@
+    internal class AufgabeC3a
+    {
+        public static void Start()
+        {
+            int vorletzteZahl = 0, letzteZahl = 1, zwischengespeicherteZahl;
+
+            Console.Write("Geben Sie eine ganze Zahl größer oder gleich 0 ein: ");
+            int eingabe = Convert.ToInt32(Console.ReadLine());
+            
+            bool fibonacci = false;
+            if (eingabe == 0) {fibonacci = true;}
+
+            Console.Write($"\nFibonacci-Reihe bis zur eingegebenen Zahl: 0 ");
+
+            while (letzteZahl <= eingabe)
+            {
+                Console.Write($"{letzteZahl} ");
+                                
+                zwischengespeicherteZahl = letzteZahl;
+                letzteZahl = letzteZahl + vorletzteZahl;
+                vorletzteZahl = zwischengespeicherteZahl;
+
+                if (eingabe == vorletzteZahl)
+                { fibonacci = true; }
+            }
+
+            if (fibonacci == true)
+            { Console.WriteLine($"\nDie Zahl {eingabe} ist Teil der Fibonacci-Reihe."); }
+            else
+            { Console.WriteLine($"\nDie Zahl {eingabe} ist nicht Teil der Fibonacci-Reihe."); }
+
+                      
+        }
+    }
