@@ -1,0 +1,18 @@
+ internal class AufgabeA2
+ {
+     public static void Start()
+     {
+         int sprungzahl = 0;
+
+         Console.Write("Fallhöhe in Zentimetern eingeben: ");
+         double fallhoehe = Convert.ToDouble(Console.ReadLine());
+
+         while (fallhoehe > 1)
+         {
+             fallhoehe = fallhoehe / 2;
+             sprungzahl++;
+         }
+
+         Console.WriteLine($"Der Flummi ist {sprungzahl}-mal gesprungen.");
+     }
+ }
