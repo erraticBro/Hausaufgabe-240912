@@ -1,0 +1,50 @@
+    internal class AufgabeB
+    {
+        public static void Start()
+        {
+            string eingabe = "", ausgabe = "";
+
+            Console.WriteLine("Geben Sie einen zu komprimierenden oder dekomprimierenden String ein:");
+            eingabe = Console.ReadLine().Trim();
+            bool unkomprimiert = true;
+
+            if (eingabe.Length % 4 == 0)
+            {
+                for (int i = 0; i < eingabe.Length; i = i + 4)
+                {
+                    if (eingabe[i] == '%' && eingabe[i+2] == '%' && (eingabe[i+1] == '1' || eingabe[i + 1] == '2' || eingabe[i + 1] == '3' ||
+                        eingabe[i + 1] == '4' || eingabe[i + 1] == '5' || eingabe[i + 1] == '6' || eingabe[i + 1] == '7' || eingabe[i + 1] == '8' || eingabe[i + 1] == '9'))
+                    { unkomprimiert = false; }
+                }
+            }
+
+            if (unkomprimiert == false)
+            {
+                for (int i = 0; i < eingabe.Length; i = i + 4)
+                {
+                    for (int j = 0; j < Convert.ToInt16(eingabe[i + 1]) - 48; j++)
+                    { ausgabe = ausgabe + Convert.ToString(eingabe[i + 3]); }
+                }
+            }
+            else
+            {
+                int zaehler = -1;
+                char aktuellerChar = eingabe[0];
+
+                for (int i = 0; i < eingabe.Length; i++)
+                {
+
+                    zaehler++;
+                    if (eingabe[i] != aktuellerChar)
+                    {
+                        ausgabe = ausgabe + "%" + zaehler + "%" + aktuellerChar;
+                        aktuellerChar = eingabe[i];
+                        zaehler = 0;
+                    }
+                }
+                ausgabe = ausgabe + "%" + (zaehler + 1) + "%" + aktuellerChar;
+            }
+
+            Console.WriteLine($"Ergebnis: {ausgabe}");
+        }
+    }
