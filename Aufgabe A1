@@ -1,0 +1,27 @@
+internal class AufgabeA1
+{
+    public static void Start()
+    {
+        Console.WriteLine("Geben Sie nacheinander zwei Grundfarben (rot, blau, gelb) ein: ");
+        string farbe1 = Console.ReadLine().ToLower();
+        string farbe2 = Console.ReadLine().ToLower();
+        string mischfarbe = "";
+
+        if ((farbe1 == "rot" && farbe2 == "blau") || (farbe1 == "blau" && farbe2 == "rot"))
+        {
+            mischfarbe = "Lila";
+        }
+
+        if ((farbe1 == "rot" && farbe2 == "gelb") || (farbe1 == "gelb" && farbe2 == "rot"))
+        {
+            mischfarbe = "Orange";
+        }
+
+        if ((farbe1 == "gelb" && farbe2 == "blau") || (farbe1 == "blau" && farbe2 == "gelb"))
+        {
+            mischfarbe = "Grün";
+        }
+
+        Console.WriteLine($"\nGemischt ergibt sich: {mischfarbe}");
+    }
+}
